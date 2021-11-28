@@ -1,88 +1,99 @@
 import logo from "./logo.svg";
 import "./App.css";
-import {useEffect, useState} from 'react';
-import WalletConnect from "@walletconnect/client";
-import QRCodeModal from "@walletconnect/qrcode-modal";
+import { useEffect, useState } from "react";
+import WalletConnectProvider from "@walletconnect/web3-provider";
+import Web3Modal from "web3modal";
 
 function App() {
   const [wallet, setWallet] = useState("");
 
   const formatWalletAddress = (address) => {
-    if(address){
-      let newAddress = address.slice(0, 2) + '...' + address.slice(address.length - 3, address.length);
+    if (address) {
+      let newAddress =
+        address.slice(0, 2) +
+        "..." +
+        address.slice(address.length - 3, address.length);
       return newAddress;
-    }else{
+    } else {
       return "";
     }
-  } 
+  };
 
-  useEffect(() => {
+  useEffect(async () => {
     //processing
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-      // true for mobile device
-      
-      // Create a connector
-      const connector = new WalletConnect({
-        bridge: "https://bridge.walletconnect.org", // Required
-        qrcodeModal: QRCodeModal,
+
+      const provider = await new WalletConnectProvider({
+        rpc: {
+            56: "https://bsc-dataseed1.binance.org",
+        },
+        chainId: 56,
+        network: "binance",
+        qrcode: true,
       });
-      // Check if connection is already established
-      if (!connector.connected) {
-        // create new session
-        connector.createSession();
-      }
-      // Subscribe to connection events
-      connector.on("connect", (error, payload) => {
-        if (error) {
-          throw error;
-        }
-        // Get provided accounts and chainId
-        const { accounts, chainId } = payload.params[0];
-        const request = connector._formatRequest({
-          method: 'get_accounts',
-        });
-        connector
-          ._sendCallRequest(request)
-          .then(result => {
-            // Returns the accounts
-            let account = result;
-            setWallet(account.address);
-          })
-          .catch(error => {
-            // Error returned when rejected
-            console.error(error);
-          });
+      provider.networkId = 56;
+      await provider.enable();
+
+      const web3Modal = new Web3Modal({
+        network: "binance", // optional
+        cacheProvider: true, // optional
+        provider // required
       });
-      connector.on("session_update", (error, payload) => {
-        if (error) {
-          throw error;
-        }
-        // Get updated accounts and chainId
-        const { accounts, chainId } = payload.params[0];
-      });
-      connector.on("disconnect", (error, payload) => {
-        if (error) {
-          throw error;
-        }
-        // Delete connector
-      });
-      
-    }else{
-      // false for not mobile device
-      if (typeof window.ethereum !== 'undefined') {
-        window.ethereum.request({ method: 'eth_requestAccounts' })
-        .then(accounts => {
-          const account = accounts[0];
-          setWallet(account);
-        })
-      }else{
-        window.open('https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn');
-      }
-    }
+
+      const _provider = await web3Modal.connect();
+
+    // if (
+    //   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    //     navigator.userAgent
+    //   )
+    // ) {
+    //   // true for mobile device
+    //   const provider = await new WalletConnectProvider({
+    //     rpc: {
+    //         56: "https://bsc-dataseed1.binance.org",
+    //     },
+    //     chainId: 56,
+    //     network: "binance",
+    //     qrcode: true,
+    //     qrcodeModalOptions: {
+    //         mobileLinks: [
+    //           "metamask",
+    //           "trust",
+    //         ]
+    //     }
+    //   });
+    //   provider.networkId = 56;
+    //   await provider.enable();
+
+    // } else {
+    //   // false for not mobile device
+    //   if (typeof window.ethereum !== "undefined") {
+    //     //Metamask wallet
+
+    //     window.ethereum
+    //       .request({ method: "eth_requestAccounts" })
+    //       .then((accounts) => {
+    //         const account = accounts[0];
+    //         setWallet(account);
+    //       });
+
+    //     //Binance chain wallet
+
+    //     // window.BinanceChain
+    //     //   .request({method: "eth_accounts"})
+    //     //   .then((accounts) => {
+    //     //     const account = accounts[0];
+    //     //     setWallet(account);
+    //     //   })
+    //   } else {
+    //     window.open(
+    //       "https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"
+    //     );
+    //   }
+    // }
 
     //out
-    return 0
-  }, [wallet])
+    return 0;
+  }, [wallet]);
 
   return (
     <div>
@@ -124,8 +135,9 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  <a className="button connect"
-                  href="#">{wallet ? formatWalletAddress(wallet) : 'CONNECT'}</a>
+                  <a className="button connect" href="#">
+                    {wallet ? formatWalletAddress(wallet) : "CONNECT"}
+                  </a>
                   {/* data-bs-toggle="modal" data-bs-target="#exampleModal" */}
                 </li>
               </ul>
