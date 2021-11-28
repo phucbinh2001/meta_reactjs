@@ -2,7 +2,6 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import Web3Modal from "web3modal";
 
 function App() {
   const [wallet, setWallet] = useState("");
@@ -19,9 +18,13 @@ function App() {
     }
   };
 
-  useEffect(async () => {
-    //processing
-
+  const connectWallet = async () => {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      // true for mobile device
       const provider = await new WalletConnectProvider({
         rpc: {
             56: "https://bsc-dataseed1.binance.org",
@@ -29,67 +32,41 @@ function App() {
         chainId: 56,
         network: "binance",
         qrcode: true,
+        
       });
       provider.networkId = 56;
       await provider.enable();
 
-      const web3Modal = new Web3Modal({
-        network: "binance", // optional
-        cacheProvider: true, // optional
-        provider // required
-      });
+    } else {
+      // false for not mobile device
+      if (typeof window.ethereum !== "undefined") {
+        //Metamask wallet
 
-      const _provider = await web3Modal.connect();
+        window.ethereum
+          .request({ method: "eth_requestAccounts" })
+          .then((accounts) => {
+            const account = accounts[0];
+            setWallet(account);
+          });
 
-    // if (
-    //   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    //     navigator.userAgent
-    //   )
-    // ) {
-    //   // true for mobile device
-    //   const provider = await new WalletConnectProvider({
-    //     rpc: {
-    //         56: "https://bsc-dataseed1.binance.org",
-    //     },
-    //     chainId: 56,
-    //     network: "binance",
-    //     qrcode: true,
-    //     qrcodeModalOptions: {
-    //         mobileLinks: [
-    //           "metamask",
-    //           "trust",
-    //         ]
-    //     }
-    //   });
-    //   provider.networkId = 56;
-    //   await provider.enable();
+        //Binance chain wallet
 
-    // } else {
-    //   // false for not mobile device
-    //   if (typeof window.ethereum !== "undefined") {
-    //     //Metamask wallet
+        // window.BinanceChain
+        //   .request({method: "eth_accounts"})
+        //   .then((accounts) => {
+        //     const account = accounts[0];
+        //     setWallet(account);
+        //   })
+      } else {
+        window.open(
+          "https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"
+        );
+      }
+    }
+  }
 
-    //     window.ethereum
-    //       .request({ method: "eth_requestAccounts" })
-    //       .then((accounts) => {
-    //         const account = accounts[0];
-    //         setWallet(account);
-    //       });
-
-    //     //Binance chain wallet
-
-    //     // window.BinanceChain
-    //     //   .request({method: "eth_accounts"})
-    //     //   .then((accounts) => {
-    //     //     const account = accounts[0];
-    //     //     setWallet(account);
-    //     //   })
-    //   } else {
-    //     window.open(
-    //       "https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"
-    //     );
-    //   }
-    // }
+  useEffect(() => {
+    //processing
 
     //out
     return 0;
@@ -134,7 +111,7 @@ function App() {
                     GAME NFT
                   </a>
                 </li>
-                <li>
+                <li onClick={() => {connectWallet()}}>
                   <a className="button connect" href="#">
                     {wallet ? formatWalletAddress(wallet) : "CONNECT"}
                   </a>
