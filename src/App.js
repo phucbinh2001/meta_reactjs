@@ -1,7 +1,24 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { useEffect, useState } from "react";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import { useEffect, useState } from "react";
+import "./App.css";
+import icon1 from "./Image/1.png";
+import icon2 from "./Image/2.png";
+import icon4 from "./Image/4.png";
+import icon6 from "./Image/6.png";
+import speakerIcon from "./Icon/speakericon.svg";
+import pancakeswap from "./Icon/pancakeicon.svg";
+import feli from "./Icon/Felixavatar.svg";
+import jhinavatar from "./Icon/jhinavatar.svg";
+import VR1 from "./Icon/VR1.svg";
+import VR2 from "./Icon/VR2.svg";
+import VR3 from "./Icon/VR3.svg";
+import VR4 from "./Icon/VR4.svg";
+import sanoavatar from "./Icon/sanoavatar.svg";
+import Sorakaavatar from "./Icon/Sorakaavatar.svg";
+import logo from "./Image/LOGO.png";
+import logoTo from "./Image/LOGO TO.svg";
+import Tokenomic from "./Image/Tokenomic.svg";
+import videoBg from "./Image/file.mp4";
 
 function App() {
   const [wallet, setWallet] = useState("");
@@ -27,16 +44,14 @@ function App() {
       // true for mobile device
       const provider = await new WalletConnectProvider({
         rpc: {
-            56: "https://bsc-dataseed1.binance.org",
+          56: "https://bsc-dataseed1.binance.org",
         },
         chainId: 56,
         network: "binance",
         qrcode: true,
-        
       });
       provider.networkId = 56;
       await provider.enable();
-
     } else {
       // false for not mobile device
       if (typeof window.ethereum !== "undefined") {
@@ -63,7 +78,7 @@ function App() {
         );
       }
     }
-  }
+  };
 
   useEffect(() => {
     //processing
@@ -75,14 +90,14 @@ function App() {
   return (
     <div>
       <video autoPlay muted loop id="myVideo">
-        <source src="https://metaceek.io/Image/file.mp4" type="video/mp4" />
+        <source src={videoBg} type="video/mp4" />
       </video>
       <nav>
         <div className="container">
           <div className="row d-flex justify-content-between">
             <div className="col-lg-2 col-12">
               <a href="#" className="logo">
-                <img src="https://metaceek.io/Image/LOGO.png" alt="" />
+                <img src={logo} alt="" />
               </a>
             </div>
             <div className="menu col-lg-10 col-12 d-flex justify-content-end">
@@ -111,7 +126,11 @@ function App() {
                     GAME NFT
                   </a>
                 </li>
-                <li onClick={() => {connectWallet()}}>
+                <li
+                  onClick={() => {
+                    connectWallet();
+                  }}
+                >
                   <a className="button connect" href="#">
                     {wallet ? formatWalletAddress(wallet) : "CONNECT"}
                   </a>
@@ -155,7 +174,7 @@ function App() {
             className="a-social aos-init aos-animate"
             aria-current="page"
           >
-            <img src="https://metaceek.io/Icon/speakericon.svg" alt="" />
+            <img src={speakerIcon} alt="" />
           </a>
           <a
             data-aos="zoom-in"
@@ -164,7 +183,7 @@ function App() {
             aria-current="page"
             href="https://t.me/Metaceek"
           >
-            <img src="https://metaceek.io/Image/1.png" alt="" />
+            <img src={icon1} alt="" />
           </a>
           <a
             data-aos="zoom-in"
@@ -173,7 +192,7 @@ function App() {
             aria-current="page"
             href="https://twitter.com/METACEEKK"
           >
-            <img src="https://metaceek.io/Image/2.png" alt="" />
+            <img src={icon2} alt="" />
           </a>
           <a
             data-aos="zoom-in"
@@ -182,10 +201,10 @@ function App() {
             aria-current="page"
             href="https://poocoin.app/tokens/0xc79700a4b1017e19a57ba6ebfbd482b7c097fdf7"
           >
-            <img src="https://metaceek.io/Image/4.png" alt="" />
+            <img src={icon4} alt="" />
           </a>
           {/* <a data-aos="zoom-in" target="_blank" class="a-social aos-init aos-animate" aria-current="page"
-                href="https://www.dextools.io/"><img src="https://metaceek.io/Image/5.png" alt=""></a> */}
+                href="https://www.dextools.io/"><img src={ require('./Image/5.png" alt=""></a> */}
           <a
             href="https://bscscan.com/token/0xc79700a4b1017e19a57ba6ebfbd482b7c097fdf7"
             data-aos="zoom-in"
@@ -193,7 +212,7 @@ function App() {
             className="a-social aos-init aos-animate"
             aria-current="page"
           >
-            <img src="https://metaceek.io/Image/6.png" alt="" />
+            <img src={icon6} alt="" />
           </a>
           <a
             href="https://pancakeswap.finance/swap"
@@ -201,7 +220,7 @@ function App() {
             className="a-social aos-init aos-animate"
             aria-current="page"
           >
-            <img src="https://metaceek.io/Icon/pancakeicon.svg" alt="" />
+            <img src={pancakeswap} alt="" />
           </a>
         </ul>
       </div>
@@ -228,7 +247,7 @@ function App() {
               </a>
             </div>
             <div className="col-12 col-lg-5">
-              <img src="https://metaceek.io/Image/LOGO TO.svg" alt="" />
+              <img src={logoTo} alt="" />
             </div>
           </div>
         </div>
@@ -247,7 +266,7 @@ function App() {
                 </p>
               </div>
               <div className="footer">
-                <img src="https://metaceek.io/Icon/VR1.svg" alt="" />
+                <img src={VR1} alt="" />
               </div>
             </div>
             <div className="col-12 col-lg-3 text-center card-custom">
@@ -259,7 +278,7 @@ function App() {
                 </p>
               </div>
               <div className="footer">
-                <img src="https://metaceek.io/Icon/VR2.svg" alt="" />
+                <img src={VR2} alt="" />
               </div>
             </div>
             <div className="col-12 col-lg-3 text-center card-custom">
@@ -271,7 +290,7 @@ function App() {
                 </p>
               </div>
               <div className="footer">
-                <img src="https://metaceek.io/Icon/VR3.svg" alt="" />
+                <img src={VR3} alt="" />
               </div>
             </div>
             <div className="col-12 col-lg-3 text-center card-custom">
@@ -280,7 +299,7 @@ function App() {
                 <p className="center">Oppen ido launch pad</p>
               </div>
               <div className="footer">
-                <img src="https://metaceek.io/Icon/VR4.svg" alt="" />
+                <img src={VR4} alt="" />
               </div>
             </div>
           </div>
@@ -341,7 +360,7 @@ function App() {
               </div>
             </div>
             <div className="col-lg-6 col-12 chart">
-              <img src="https://metaceek.io/Image/Tokenomic.svg" alt="" />
+              <img src={Tokenomic} alt="" />
             </div>
           </div>
           <h3 className="text-center" style={{ color: "#38ffff" }}>
@@ -354,7 +373,7 @@ function App() {
           <h2 className="title mb-5">TEAM</h2>
           <div className="row">
             <div className="col-lg-3 col-6 mb-4">
-              <img src="https://metaceek.io/Icon/jhinavatar.svg" alt="" />
+              <img src={jhinavatar} alt="" />
               <h1 className="mt-2 mb-3 text-center">JHIN</h1>
               <p className="mb-0 text-center" style={{ fontWeight: 100 }}>
                 CO FOUNDER,
@@ -364,7 +383,7 @@ function App() {
               </p>
             </div>
             <div className="col-lg-3 col-6 mb-4">
-              <img src="https://metaceek.io/Icon/sanoavatar.svg" alt="" />
+              <img src={sanoavatar} alt="" />
               <h1 className="mt-2 mb-3 text-center">SANO</h1>
               <p className="mb-0 text-center" style={{ fontWeight: 100 }}>
                 HEAD OF DESIGN &amp;
@@ -374,7 +393,7 @@ function App() {
               </p>
             </div>
             <div className="col-lg-3 col-6 mb-4">
-              <img src="https://metaceek.io/Icon/Sorakaavatar.svg" alt="" />
+              <img src={Sorakaavatar} alt="" />
               <h1 className="mt-2 mb-3 text-center">SENA</h1>
               <p className="mb-0 text-center" style={{ fontWeight: 100 }}>
                 HEAD OF BLOCKCHAIN &amp;
@@ -384,7 +403,7 @@ function App() {
               </p>
             </div>
             <div className="col-lg-3 col-6 mb-4">
-              <img src="https://metaceek.io/Icon/Felixavatar.svg" alt="" />
+              <img src={feli} alt="" />
               <h1 className="mt-2 mb-3 text-center">FELIX</h1>
               <p className="mb-0 text-center" style={{ fontWeight: 100 }}>
                 CEO, FOUNDER
@@ -463,18 +482,18 @@ function App() {
       {/* <div class="nav-social mt-0">
         <ul class="social mt-0">
             <a data-aos="zoom-in" target="_blank" class="a-social aos-init aos-animate" aria-current="page"
-                href="https://t.me/"><img src="https://metaceek.io/Image/1.png" alt=""></a>
+                href="https://t.me/"><img src={ require('./Image/1.png" alt=""></a>
             <a data-aos="zoom-in" target="_blank" class="a-social aos-init aos-animate" aria-current="page"
-                href="https://twitter.com"><img src="https://metaceek.io/Image/2.png" alt=""></a>
-            <a data-aos="zoom-in" class="a-social aos-init aos-animate" aria-current="page"><img src="https://metaceek.io/Image/3.png"
+                href="https://twitter.com"><img src={ require('./Image/2.png" alt=""></a>
+            <a data-aos="zoom-in" class="a-social aos-init aos-animate" aria-current="page"><img src={ require('./Image/3.png"
                     alt=""></a>
             <a data-aos="zoom-in" target="_blank" class="a-social aos-init aos-animate" aria-current="page"
-                href="https://poocoin.app/"><img src="https://metaceek.io/Image/4.png" alt=""></a>
+                href="https://poocoin.app/"><img src={ require('./Image/4.png" alt=""></a>
             <a data-aos="zoom-in" target="_blank" class="a-social aos-init aos-animate" aria-current="page"
-                href="https://www.dextools.io/"><img src="https://metaceek.io/Image/5.png" alt=""></a>
+                href="https://www.dextools.io/"><img src={ require('./Image/5.png" alt=""></a>
             <a data-aos="zoom-in" target="_blank" class="a-social aos-init aos-animate" aria-current="page"
-                href="https://bscscan.com/"><img src="https://metaceek.io/Image/6.png" alt=""></a>
-            <a data-aos="zoom-in" class="a-social aos-init aos-animate" aria-current="page"><img src="https://metaceek.io/Image/7.png"
+                href="https://bscscan.com/"><img src={ require('./Image/6.png" alt=""></a>
+            <a data-aos="zoom-in" class="a-social aos-init aos-animate" aria-current="page"><img src={ require('./Image/7.png"
                     alt=""></a>
         </ul>
     </div> */}
