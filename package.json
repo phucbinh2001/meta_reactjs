@@ -9,7 +9,6 @@
     "@walletconnect/client": "^1.6.6",
     "@walletconnect/qrcode-modal": "^1.6.6",
     "@walletconnect/web3-provider": "^1.6.6",
-    "hex-lite": "^1.5.0",
     "i": "^0.3.7",
     "isomorphic-webcrypto": "^2.3.8",
     "node-forge": "^0.10.0",
@@ -20,7 +19,6 @@
     "web-vitals": "^1.1.2",
     "web3": "^1.6.1",
     "web3.js-browser": "^0.2.0",
-    "web3modal": "^1.9.4"
   },
   "scripts": {
     "start": "react-scripts start",
