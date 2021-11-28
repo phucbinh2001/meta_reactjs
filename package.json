@@ -18,7 +18,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2",
     "web3": "^1.6.1",
-    "web3.js-browser": "^0.2.0",
+    "web3.js-browser": "^0.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
