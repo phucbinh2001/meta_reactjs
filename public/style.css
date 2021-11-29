@@ -1,5 +1,7 @@
-/*
- */
+@font-face {
+  font-family: "headingFont";
+  src: url(./Fonts/MandatoryPlaything-nRRd0.ttf);
+}
 
 #myVideo {
   position: fixed;
