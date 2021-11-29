@@ -1,5 +1,3 @@
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import { useEffect, useState } from "react";
 import "./App.css";
 import icon1 from "./Image/1.png";
 import icon2 from "./Image/2.png";
@@ -19,78 +17,8 @@ import logo from "./Image/LOGO.png";
 import logoTo from "./Image/LOGO TO.svg";
 import Tokenomic from "./Image/Tokenomic.svg";
 import videoBg from "./Image/file.mp4";
-import Web3 from "web3";
 
 function App() {
-  const [wallet, setWallet] = useState("");
-
-  const formatWalletAddress = (address) => {
-    if (address) {
-      let newAddress =
-        address.slice(0, 2) +
-        "..." +
-        address.slice(address.length - 3, address.length);
-      return newAddress;
-    } else {
-      return "";
-    }
-  };
-
-  const connectWallet = async () => {
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      // true for mobile device
-      const provider = await new WalletConnectProvider({
-        rpc: {
-          56: "https://bsc-dataseed1.binance.org",
-        },
-        chainId: 56,
-        network: "binance",
-        qrcode: true,
-      });
-      provider.networkId = 56;
-      await provider.enable();
-      const web3 = new Web3(provider);
-      const accounts = await web3.eth.getAccounts();
-      setWallet(accounts[0]);
-    } else {
-      // false for not mobile device
-      if (typeof window.ethereum !== "undefined") {
-        //Metamask wallet
-
-        window.ethereum
-          .request({ method: "eth_requestAccounts" })
-          .then((accounts) => {
-            const account = accounts[0];
-            setWallet(account);
-          });
-
-        //Binance chain wallet
-
-        // window.BinanceChain
-        //   .request({method: "eth_accounts"})
-        //   .then((accounts) => {
-        //     const account = accounts[0];
-        //     setWallet(account);
-        //   })
-      } else {
-        window.open(
-          "https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn"
-        );
-      }
-    }
-  };
-
-  useEffect(() => {
-    //processing
-
-    //out
-    return 0;
-  }, [wallet]);
-
   return (
     <div>
       <video autoPlay muted loop id="myVideo">
@@ -129,16 +57,6 @@ function App() {
                   >
                     GAME NFT
                   </a>
-                </li>
-                <li
-                  onClick={() => {
-                    connectWallet();
-                  }}
-                >
-                  <a className="button connect" href="#">
-                    {wallet ? formatWalletAddress(wallet) : "CONNECT"}
-                  </a>
-                  {/* data-bs-toggle="modal" data-bs-target="#exampleModal" */}
                 </li>
               </ul>
             </div>
@@ -209,15 +127,7 @@ function App() {
           </a>
           {/* <a data-aos="zoom-in" target="_blank" class="a-social aos-init aos-animate" aria-current="page"
                 href="https://www.dextools.io/"><img src={ require('./Image/5.png" alt=""></a> */}
-          <a
-            href="https://bscscan.com/token/0xc79700a4b1017e19a57ba6ebfbd482b7c097fdf7"
-            data-aos="zoom-in"
-            target="_blank"
-            className="a-social aos-init aos-animate"
-            aria-current="page"
-          >
-            <img src={icon6} alt="" />
-          </a>
+
           <a
             href="https://pancakeswap.finance/swap"
             data-aos="zoom-in"
