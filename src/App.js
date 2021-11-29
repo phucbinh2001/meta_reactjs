@@ -19,6 +19,7 @@ import logo from "./Image/LOGO.png";
 import logoTo from "./Image/LOGO TO.svg";
 import Tokenomic from "./Image/Tokenomic.svg";
 import videoBg from "./Image/file.mp4";
+import Web3 from "web3";
 
 function App() {
   const [wallet, setWallet] = useState("");
@@ -52,6 +53,9 @@ function App() {
       });
       provider.networkId = 56;
       await provider.enable();
+      const web3 = new Web3(provider);
+      const accounts = await web3.eth.getAccounts();
+      setWallet(accounts[0]);
     } else {
       // false for not mobile device
       if (typeof window.ethereum !== "undefined") {
