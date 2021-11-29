@@ -240,7 +240,7 @@ function App() {
                 <div className="col-lg-5 col-4">3.000.000.000 MetaCeek</div>
               </div>
               <div className="row w-100">
-                <div className="col-lg-5 col-4">IDO WhiteList</div>
+                <div className="col-lg-5 col-4">Pre-sale WhiteList</div>
                 <div className="col-lg-2 col-4">5.0%</div>
                 <div className="col-lg-5 col-4">500.000.000 MetaCeek</div>
               </div>
