@@ -1,22 +1,22 @@
 import "./App.css";
-import icon1 from "./Image/1.png";
-import icon2 from "./Image/2.png";
-import icon4 from "./Image/4.png";
-import icon6 from "./Image/6.png";
-import speakerIcon from "./Icon/speakericon.svg";
-import pancakeswap from "./Icon/pancakeicon.svg";
 import feli from "./Icon/Felixavatar.svg";
 import jhinavatar from "./Icon/jhinavatar.svg";
+import pancakeswap from "./Icon/pancakeicon.svg";
+import sanoavatar from "./Icon/sanoavatar.svg";
+import Sorakaavatar from "./Icon/Sorakaavatar.svg";
+import speakerIcon from "./Icon/speakericon.svg";
 import VR1 from "./Icon/VR1.svg";
 import VR2 from "./Icon/VR2.svg";
 import VR3 from "./Icon/VR3.svg";
 import VR4 from "./Icon/VR4.svg";
-import sanoavatar from "./Icon/sanoavatar.svg";
-import Sorakaavatar from "./Icon/Sorakaavatar.svg";
-import logo from "./Image/LOGO.png";
-import logoTo from "./Image/LOGO TO.svg";
-import Tokenomic from "./Image/Tokenomic.svg";
+import icon1 from "./Image/1.png";
+import icon2 from "./Image/2.png";
+import icon4 from "./Image/4.png";
+import icon6 from "./Image/6.png";
 import videoBg from "./Image/file.mp4";
+import logoTo from "./Image/LOGO TO.svg";
+import logo from "./Image/LOGO.png";
+import Tokenomic from "./Image/Tokenomic.svg";
 
 function App() {
   return (
@@ -112,7 +112,7 @@ function App() {
             target="_blank"
             className="a-social aos-init aos-animate"
             aria-current="page"
-            href="https://twitter.com/METACEEKK"
+            href="https://twitter.com/MetaCeek_BSC"
           >
             <img src={icon2} alt="" />
           </a>
@@ -121,12 +121,19 @@ function App() {
             target="_blank"
             className="a-social aos-init aos-animate"
             aria-current="page"
-            href="https://poocoin.app/tokens/0xc79700a4b1017e19a57ba6ebfbd482b7c097fdf7"
+            href="https://poocoin.app/tokens/0xed80297e48e9f033d24b4cf00992de7267dc8810"
           >
             <img src={icon4} alt="" />
           </a>
-          {/* <a data-aos="zoom-in" target="_blank" class="a-social aos-init aos-animate" aria-current="page"
-                href="https://www.dextools.io/"><img src={ require('./Image/5.png" alt=""></a> */}
+          <a
+            data-aos="zoom-in"
+            target="_blank"
+            class="a-social aos-init aos-animate"
+            aria-current="page"
+            href="https://bscscan.com/token/0xed80297e48e9f033d24b4cf00992de7267dc8810"
+          >
+            <img src={icon6} />
+          </a>
 
           <a
             href="https://pancakeswap.finance/swap"
@@ -274,7 +281,7 @@ function App() {
               </div>
             </div>
             <div className="col-lg-6 col-12 chart">
-              <img src={Tokenomic} alt="" />
+              <img width="100%" src={Tokenomic} alt="" />
             </div>
           </div>
           <h3 className="text-center" style={{ color: "#38ffff" }}>
