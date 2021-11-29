@@ -339,7 +339,7 @@ function App() {
                 <div className="col-lg-5 col-4">1.500.000.000 MetaCeek</div>
               </div>
               <div className="row w-100">
-                <div className="col-lg-5 col-4">Game NFT Click To Earn</div>
+                <div className="col-lg-5 col-4">Cex listings</div>
                 <div className="col-lg-2 col-4">20.0%</div>
                 <div className="col-lg-5 col-4">2.000.000.000 MetaCeek</div>
               </div>
