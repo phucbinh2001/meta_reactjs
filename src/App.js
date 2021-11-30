@@ -242,7 +242,7 @@ function App() {
               <div className="row w-100">
                 <div className="col-lg-5 col-4">Pre-sale WhiteList</div>
                 <div className="col-lg-2 col-4">25.0%</div>
-                <div className="col-lg-5 col-4">1.500.000.000 MetaCeek</div>
+                <div className="col-lg-5 col-4">2.500.000.000 MetaCeek</div>
               </div>
               {/* <div className="row w-100">
                 <div className="col-lg-5 col-4">Pre-sale</div>
