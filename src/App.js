@@ -256,8 +256,8 @@ function App() {
               </div>
               <div className="row w-100">
                 <div className="col-lg-5 col-4">Burn</div>
-                <div className="col-lg-2 col-4">15.0%</div>
-                <div className="col-lg-5 col-4">1.500.000.000 MetaCeek</div>
+                <div className="col-lg-2 col-4">13.0%</div>
+                <div className="col-lg-5 col-4">1.300.000.000 MetaCeek</div>
               </div>
               <div className="row w-100">
                 <div className="col-lg-5 col-4">Cex listings</div>
@@ -285,7 +285,7 @@ function App() {
             </div>
           </div>
           <h3 className="text-center" style={{ color: "#38ffff" }}>
-            BUY AND SELL 10% SLIPPAGE
+            BUY AND SELL 12% SLIPPAGE
           </h3>
         </div>
       </section>
