@@ -16,7 +16,7 @@ import icon6 from "./Image/6.png";
 import videoBg from "./Image/file.mp4";
 import logoTo from "./Image/LOGO TO.svg";
 import logo from "./Image/LOGO.png";
-import Tokenomic from "./Image/Tokenomic.svg";
+import Tokenomic from "./Image/Tokenomic.png";
 
 function App() {
   return (
@@ -241,14 +241,14 @@ function App() {
               </div>
               <div className="row w-100">
                 <div className="col-lg-5 col-4">Pre-sale WhiteList</div>
-                <div className="col-lg-2 col-4">23.0%</div>
-                <div className="col-lg-5 col-4">2.000.000.000 MetaCeek</div>
+                <div className="col-lg-2 col-4">25.0%</div>
+                <div className="col-lg-5 col-4">1.500.000.000 MetaCeek</div>
               </div>
-              <div className="row w-100">
+              {/* <div className="row w-100">
                 <div className="col-lg-5 col-4">Pre-sale</div>
                 <div className="col-lg-2 col-4">18.0%</div>
                 <div className="col-lg-5 col-4">1.500.000.000 MetaCeek</div>
-              </div>
+              </div> */}
               <div className="row w-100">
                 <div className="col-lg-5 col-4">Aridrop</div>
                 <div className="col-lg-2 col-4">2.0%</div>
