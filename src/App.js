@@ -16,6 +16,7 @@ import icon6 from "./Image/6.png";
 import videoBg from "./Image/file.mp4";
 import logoTo from "./Image/LOGO TO.svg";
 import logo from "./Image/LOGO.png";
+import redit from "./Image/Reddit.svg";
 import Tokenomic from "./Image/Tokenomic.png";
 
 function App() {
@@ -135,6 +136,14 @@ function App() {
             <img src={icon6} />
           </a>
 
+          <a
+            href="https://www.reddit.com/user/Meta_Ceek/"
+            data-aos="zoom-in"
+            className="a-social aos-init aos-animate"
+            aria-current="page"
+          >
+            <img src={redit} alt="" />
+          </a>
           <a
             href="https://pancakeswap.finance/swap"
             data-aos="zoom-in"
