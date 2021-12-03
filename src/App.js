@@ -122,7 +122,7 @@ function App() {
             target="_blank"
             className="a-social aos-init aos-animate"
             aria-current="page"
-            href="https://poocoin.app/tokens/0xed80297e48e9f033d24b4cf00992de7267dc8810"
+            href="https://poocoin.app/tokens/0x9e5520d2272191ce88593dcf934ddb7eeddd31ea"
           >
             <img src={icon4} alt="" />
           </a>
@@ -131,7 +131,7 @@ function App() {
             target="_blank"
             class="a-social aos-init aos-animate"
             aria-current="page"
-            href="https://bscscan.com/token/0xed80297e48e9f033d24b4cf00992de7267dc8810"
+            href="https://bscscan.com/token/0x9e5520d2272191ce88593dcf934ddb7eeddd31ea"
           >
             <img src={icon6} />
           </a>
