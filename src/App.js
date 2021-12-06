@@ -17,6 +17,7 @@ import videoBg from "./Image/file.mp4";
 import logoTo from "./Image/LOGO TO.svg";
 import logo from "./Image/LOGO.png";
 import redit from "./Image/Reddit.svg";
+import pdf from "./Image/AUDIT.pdf";
 import Tokenomic from "./Image/Tokenomic.png";
 
 function App() {
@@ -53,6 +54,15 @@ function App() {
                 <li>
                   <a
                     className="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    AUDIT
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="button"
                     target="_blank"
                     href="https://game.metaceek.io/"
                   >
@@ -65,30 +75,57 @@ function App() {
         </div>
       </nav>
       {/* Modal */}
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex={-1}
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                WalletConnect
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              />
+
+      <div>
+        {/* Button trigger modal */}
+
+        {/* Modal */}
+        <div
+          className="modal  fade"
+          id="exampleModal"
+          tabIndex={-1}
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-lg">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
+                  AUDIT
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                />
+              </div>
+              <div className="modal-body">
+                <iframe
+                  className="pdf"
+                  src={pdf}
+                  frameBorder="0"
+                  scrolling="auto"
+                  width="100%"
+                ></iframe>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" className="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
             </div>
-            <div className="modal-body">...</div>
           </div>
         </div>
       </div>
+
       <div className="nav-social">
         <ul className="social">
           <a

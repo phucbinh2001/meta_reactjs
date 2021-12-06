@@ -12,6 +12,10 @@
   z-index: -1;
 }
 
+.pdf {
+  height: 100vh;
+}
+
 .body {
   position: relative;
   background-color: black;
@@ -29,6 +33,14 @@ section {
   font-size: 100px;
 }
 
+.modal-content {
+  background: #2c656e;
+}
+
+.modal-header {
+  color: #00ffff;
+}
+
 nav {
   background-color: rgb(24 86 98 / 60%);
   font-size: 30px;
@@ -43,6 +55,7 @@ nav {
 nav .button {
   margin-left: 5px;
   padding: 0px 10px;
+  cursor: pointer;
 }
 
 nav .logo img {
